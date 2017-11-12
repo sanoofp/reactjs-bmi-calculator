@@ -1,4 +1,70 @@
 body{
   margin: 0;
   padding: 0;
+  background-color: #212121;
+}
+
+/* font-family: 'Open Sans Condensed', sans-serif; */
+/* font-family: 'Raleway', sans-serif; */
+
+.App{
+  /* width: 100%; */
+  height: 100vh;
+  padding: 0px 0.3em;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.bmi-container{
+  max-width: 640px;
+  height: auto;
+  border-radius: 3px 3px 10px 10px;
+  border-top: 8px solid #FF9800;
+  box-sizing: border-box; 
+  padding: 10px 0.9em;
+  background-color: #FAFAFA;
+}
+.bmi-container2{
+  max-width: 99.7%;
+  width: 580px;
+  box-sizing: border-box; 
+  height: auto;
+  border-radius: 3px 3px 10px 10px;
+  border-top: 8px solid #FF9800;
+  padding: 10px 0.9em;
+  background-color: #FAFAFA;
+  margin-top: 12px;
+  font-family: 'Raleway', sans-serif;
+  transition: background-color 0.3s ease-in-out,opacity 0.3s ease-in-out;
+}
+h2{
+  /* font-family: 'Open Sans', sans-serif;   */
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.4em;
+}
+.hr{
+  width: 100%;
+  height: 1px;
+  border-radius: 50%;
+  background: linear-gradient(to right, rgba(0,0,0,0.1), rgba(0,0,0,0.9), rgba(0,0,0,0.1));
+}
+.input-boxes{
+  width: 100%;
+  padding: 1.6em 2em;
+  box-sizing: border-box;
+}
+.raisedButton button{
+  transition: background-color 0.3s ease-in-out;
+}
+.raisedButton button:hover{
+  background-color: #FF9800 !important;
+}
+.bmi-results-cont{
+  font-family: 'Raleway', sans-serif;
+  /* font-family: 'Open Sans', sans-serif; */
 }
