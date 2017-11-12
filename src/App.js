@@ -1,24 +1,37 @@
 import React, { Component } from 'react';
-import './App.css';
 import InputFields from './Components/InputFields';
+import BMIResult from './Components/BMIResult';
+import About from './Components/About';
+import './App.css';
+
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+import Menu from 'material-ui/svg-icons/navigation/menu';
+import Drawer from 'material-ui/Drawer';
+import IconButton from 'material-ui/IconButton';
+import Close from 'material-ui/svg-icons/navigation/close';
+
+const style={
+  position: 'fixed',
+  top: '20px',
+  right: '12px'
+}
+
 const numeral = require('numeral');
-
-
 
 class App extends Component {
   constructor(){
     super();
     this.state = {
+      navOpen: false,
       resultBoxShow: false,
-      bmiInfo: {
-        
-      }
+      bmiInfo: { }
     }
     this.setHeight = this.setHeight.bind(this);
     this.setWeight = this.setWeight.bind(this);
     this.generateBMI = this.generateBMI.bind(this);
   }
-
+  handleNavToggle = () => this.setState({navOpen: !this.state.navOpen});
+  handleNavClose = () => this.setState({navOpen: false});
   setWeight(e){
     this.setState({weight: e.target.value});
   }
@@ -26,11 +39,45 @@ class App extends Component {
     this.setState({height: (e.target.value)});
   }
 
+  render() {
+    return (
+      <div className="App">
+        <FloatingActionButton onClick={this.handleNavToggle} style={style}><Menu /></FloatingActionButton>
+        <Drawer 
+          docked={false}
+          width={200}
+          containerClassName="drawer"
+          openSecondary={true}
+          open={this.state.navOpen}
+          onRequestChange={(open) => this.setState({navOpen: open})}
+        >
+          <IconButton onClick={this.handleNavClose}><Close /></IconButton>
+          <About />
+        </Drawer>
+        <div className="bmi-container">
+          <h2>BMI Calculator</h2>
+          <div className="hr"></div>
+          <InputFields 
+            onWeightChange={this.setWeight}
+            onHeightChange={this.setHeight}
+            generateBMI={this.generateBMI}
+          />
+        </div>
+        <BMIResult 
+          resultBoxShow={this.state.resultBoxShow}
+          backgroundColor={this.state.bmiInfo.resultColor}
+          condition={this.state.bmiInfo.condition}
+          bmi={this.state.bmi}
+        />
+      </div>
+    );
+  }
+
+
   generateBMI(){
     const { weight, height } = this.state;
     let bmi = weight / (height * height) * 10000;
     bmi = numeral(bmi).format('(0.0)');
-    console.log(bmi)
     this.setState({bmi: bmi, bmiInfo: this.getCondition(bmi)});
     if(this.state.resultBoxShow === false){
       this.setState({resultBoxShow: true});
@@ -55,28 +102,6 @@ class App extends Component {
     } else {
       return {resultColor: "#D84315", condition: "Very severely obese"}
     }
-  }
-
-  render() {
-    return (
-      <div className="App">
-        <div className="bmi-container">
-          <h2>BMI Calculator</h2>
-          <div className="hr"></div>
-          <InputFields 
-            onWeightChange={this.setWeight}
-            onHeightChange={this.setHeight}
-            generateBMI={this.generateBMI}
-          />
-          
-        </div>
-        <div className="bmi-container2" 
-          style={{backgroundColor: this.state.bmiInfo.resultColor, opacity: `${(this.state.resultBoxShow) ? '1' : '0'}`}}>
-          <p>{this.state.bmiInfo.condition}</p>
-          <h1>{this.state.bmi}</h1>
-        </div>
-      </div>
-    );
   }
 }
 

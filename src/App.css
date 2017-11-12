@@ -8,7 +8,7 @@ body{
 /* font-family: 'Raleway', sans-serif; */
 
 .App{
-  /* width: 100%; */
+  width: 100%;
   height: 100vh;
   padding: 0px 0.3em;
   box-sizing: border-box;
@@ -67,4 +67,52 @@ h2{
 .bmi-results-cont{
   font-family: 'Raleway', sans-serif;
   /* font-family: 'Open Sans', sans-serif; */
+}
+
+.footer{
+  font-family: 'Raleway', sans-serif;
+  width: 100%;
+  padding: 0.4em 0em;
+  box-sizing: border-box;
+  text-align: center;
+  background-color: #424242;
+}
+a{
+  color: rgba(0,0,0,0.9);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+i{
+  font-size: 1.7em;
+}
+a:hover{
+  color: #FF9800;
+}
+.drawer{
+  text-align: right;
+  background-color: rgba(55, 71, 79,1.0);
+}
+.about{
+  padding: 0px 12px;
+  box-sizing: border-box;
+  width: 100%;
+  height: calc(100% - 48px);
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+  text-align: left;
+  font-family: 'Raleway', sans-serif;
+}
+
+.about-user{
+	position: absolute;
+	bottom: 1%;
+	right: 0;
+	width: 100%;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
 }
