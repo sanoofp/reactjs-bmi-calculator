@@ -31,7 +31,7 @@ class App extends Component {
         <div className="bmi-container">
         <form onSubmit={(e) => e.preventDefault()}>
           <input type="number" onChange={this.setWeight.bind(this)} placeholder="Weight (kg)"/>
-          <input type="number" onChange={this.setHeight.bind(this)} placeholder="Height (m)"/>
+          <input type="number" onChange={this.setHeight.bind(this)} placeholder="Height (cm)"/>
           <input type="submit" onClick={this.generateBMI.bind(this)} value="GET BMI" />
         </form>
         </div>
