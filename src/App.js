@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import InputFields from './Components/InputFields';
 import BMIResult from './Components/BMIResult';
 import About from './Components/About';
-import './App.css';
+import './styles/main/App.css';
 
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import Menu from 'material-ui/svg-icons/navigation/menu';
@@ -13,7 +13,8 @@ import Close from 'material-ui/svg-icons/navigation/close';
 const style={
   position: 'fixed',
   top: '20px',
-  right: '12px'
+  right: '12px',
+  zIndex: '99'
 }
 
 const numeral = require('numeral');
@@ -54,21 +55,23 @@ class App extends Component {
           <IconButton onClick={this.handleNavClose}><Close /></IconButton>
           <About />
         </Drawer>
-        <div className="bmi-container">
-          <h2>BMI Calculator</h2>
-          <div className="hr"></div>
-          <InputFields 
-            onWeightChange={this.setWeight}
-            onHeightChange={this.setHeight}
-            generateBMI={this.generateBMI}
+        <div className="wrapper">
+          <div className="bmi-container">
+            <h2>BMI Calculator</h2>
+            <div className="hr"></div>
+            <InputFields 
+              onWeightChange={this.setWeight}
+              onHeightChange={this.setHeight}
+              generateBMI={this.generateBMI}
+            />
+          </div>
+          <BMIResult 
+            resultBoxShow={this.state.resultBoxShow}
+            backgroundColor={this.state.bmiInfo.resultColor}
+            condition={this.state.bmiInfo.condition}
+            bmi={this.state.bmi}
           />
         </div>
-        <BMIResult 
-          resultBoxShow={this.state.resultBoxShow}
-          backgroundColor={this.state.bmiInfo.resultColor}
-          condition={this.state.bmiInfo.condition}
-          bmi={this.state.bmi}
-        />
       </div>
     );
   }
