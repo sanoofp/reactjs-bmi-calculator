@@ -1,4 +1,5 @@
 import React from 'react';
+import DialogBox from './DialogBox';
 
 const BMIResult = (props) => {
     return (
@@ -8,6 +9,9 @@ const BMIResult = (props) => {
         }}>
             <p>{props.condition}</p>
             <h1>{props.bmi}</h1>
+            {props.condition !== 'Normal (healthy weight)' &&
+                <DialogBox btnBGColor={props.backgroundColor}/>
+            }
         </div>
     );
 }

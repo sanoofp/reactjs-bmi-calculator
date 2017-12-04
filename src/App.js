@@ -43,6 +43,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+
         <FloatingActionButton onClick={this.handleNavToggle} style={style}><Menu /></FloatingActionButton>
         <Drawer 
           docked={false}
@@ -55,6 +56,7 @@ class App extends Component {
           <IconButton onClick={this.handleNavClose}><Close /></IconButton>
           <About />
         </Drawer>
+
         <div className="wrapper">
           <div className="bmi-container">
             <h2>BMI Calculator</h2>
@@ -72,6 +74,8 @@ class App extends Component {
             bmi={this.state.bmi}
           />
         </div>
+
+
       </div>
     );
   }
