@@ -172,3 +172,11 @@ a:hover{
 	-ms-flex-pack: distribute;
 	    justify-content: space-around;
 }
+
+.dialog-h1{
+  font-family: 'Raleway', sans-serif;
+}
+.dialog-p{
+  font-family: 'Open Sans Condensed', sans-serif;
+  /* font-family: 'Raleway', sans-serif; */
+}
