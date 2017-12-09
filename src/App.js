@@ -1,21 +1,24 @@
 import React, { Component } from 'react';
 import InputFields from './Components/InputFields';
 import BMIResult from './Components/BMIResult';
-import About from './Components/About';
+import BmiWiki from './Components/BmiWiki';
 import './styles/main/App.css';
 
 import FloatingActionButton from 'material-ui/FloatingActionButton';
-import Menu from 'material-ui/svg-icons/navigation/menu';
 import Drawer from 'material-ui/Drawer';
+import MenuItem from 'material-ui/MenuItem';
+import About from './Components/About';
+
+import Menu from 'material-ui/svg-icons/navigation/menu';
 import IconButton from 'material-ui/IconButton';
 import Close from 'material-ui/svg-icons/navigation/close';
 
 const style={
-  position: 'fixed',
-  top: '20px',
-  right: '12px',
-  zIndex: '99'
-}
+    position: 'fixed',
+    top: '20px',
+    right: '12px',
+    zIndex: '99'
+} 
 
 const numeral = require('numeral');
 
@@ -23,7 +26,8 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      navOpen: false,
+      navOpen: false,      
+      BmiWikiOpen: false, 
       resultBoxShow: false,
       bmiInfo: { }
     }
@@ -31,8 +35,6 @@ class App extends Component {
     this.setWeight = this.setWeight.bind(this);
     this.generateBMI = this.generateBMI.bind(this);
   }
-  handleNavToggle = () => this.setState({navOpen: !this.state.navOpen});
-  handleNavClose = () => this.setState({navOpen: false});
   setWeight(e){
     this.setState({weight: e.target.value});
   }
@@ -40,33 +42,41 @@ class App extends Component {
     this.setState({height: (e.target.value)});
   }
 
+  handleNavToggle = () => this.setState({navOpen: !this.state.navOpen});
+  handleNavClose = () => this.setState({navOpen: false});
+
   render() {
     return (
       <div className="App">
 
         <FloatingActionButton onClick={this.handleNavToggle} style={style}><Menu /></FloatingActionButton>
         <Drawer 
-          docked={false}
-          width={200}
-          containerClassName="drawer"
-          openSecondary={true}
-          open={this.state.navOpen}
-          onRequestChange={(open) => this.setState({navOpen: open})}
+            docked={false}
+            width={240}
+            containerClassName="drawer"
+            openSecondary={true}
+            open={this.state.navOpen}
+            onRequestChange={(open) => this.setState({navOpen: open})}
         >
           <IconButton onClick={this.handleNavClose}><Close /></IconButton>
+          <MenuItem style={{textAlign: 'left'}} onClick={this.handleNavClose}>What is Bmi</MenuItem>
           <About />
         </Drawer>
 
         <div className="wrapper">
           <div className="bmi-container">
-            <h2>BMI Calculator</h2>
+
+            <h2 onClick={() => {this.setState({BmiWikiOpen: true})}}>BMI Calculator</h2>
+            <BmiWiki open={this.state.BmiWikiOpen}/>
             <div className="hr"></div>
             <InputFields 
               onWeightChange={this.setWeight}
               onHeightChange={this.setHeight}
               generateBMI={this.generateBMI}
             />
+
           </div>
+          
           <BMIResult 
             resultBoxShow={this.state.resultBoxShow}
             backgroundColor={this.state.bmiInfo.resultColor}
@@ -93,21 +103,21 @@ class App extends Component {
 
   getCondition = (bmi) => {
     if(bmi < 15){
-      return {resultColor: "#FFF8E1", condition: "Very severely underweight"}
+      return {resultColor: "#FFEE58", condition: "Very severely underweight"}
     } else if (bmi >= 15 && bmi <= 15.9) {
-      return {resultColor: "#FFECB3", condition: "Severely underweight"};
+      return {resultColor: "#FFEE58", condition: "Severely underweight"};
     } else if (bmi >= 16 && bmi < 18.5) {
-      return {resultColor: "#FFD54F", condition: "Underweight"};
+      return {resultColor: "#FFEB3B", condition: "Underweight"};
     } else if (bmi >= 18.5 && bmi < 25){
-      return {resultColor: "#66BB6A", condition: "Normal (healthy weight)"};
+      return {resultColor: "#66BB6A", condition: "Normal (Healthy weight)"};
     } else if (bmi >= 25 && bmi < 30) {
       return {resultColor: "#EF5350", condition: "Overweight"};
     } else if (bmi >= 30 && bmi < 35){
       return {resultColor: "#E53935", condition: "Moderately obese"};
     } else if (bmi >= 35 && bmi < 40) {
-      return {resultColor: "#C62828", condition: "Severely obese"}
+      return {resultColor: "#D84315", condition: "Severely obese"}
     } else {
-      return {resultColor: "#D84315", condition: "Very severely obese"}
+      return {resultColor: "#C62828", condition: "Very severely obese"}
     }
   }
 }
