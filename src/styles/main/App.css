@@ -30,7 +30,7 @@ body{
           align-items: center;
   /* overflow: hidden; */
 }
-@media(max-height: 580px){
+@media(max-height: 540px){
   .App{
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;

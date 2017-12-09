@@ -45,6 +45,10 @@ class App extends Component {
   handleNavToggle = () => this.setState({navOpen: !this.state.navOpen});
   handleNavClose = () => this.setState({navOpen: false});
 
+  openBmiWiki = () => {
+    this.setState({navOpen: false,BmiWikiOpen: true});
+  }
+
   render() {
     return (
       <div className="App">
@@ -59,22 +63,25 @@ class App extends Component {
             onRequestChange={(open) => this.setState({navOpen: open})}
         >
           <IconButton onClick={this.handleNavClose}><Close /></IconButton>
-          <MenuItem style={{textAlign: 'left'}} onClick={this.handleNavClose}>What is Bmi</MenuItem>
+          <MenuItem style={{textAlign: 'left'}} onClick={this.openBmiWiki}>What is BMI ?</MenuItem>
           <About />
         </Drawer>
 
         <div className="wrapper">
           <div className="bmi-container">
 
-            <h2 onClick={() => {this.setState({BmiWikiOpen: true})}}>BMI Calculator</h2>
-            <BmiWiki open={this.state.BmiWikiOpen}/>
+            <h2>BMI Calculator</h2>
             <div className="hr"></div>
             <InputFields 
               onWeightChange={this.setWeight}
               onHeightChange={this.setHeight}
               generateBMI={this.generateBMI}
             />
-
+            <BmiWiki 
+              open={this.state.BmiWikiOpen} 
+              close={() => {this.setState({BmiWikiOpen: false})}}
+            />
+            
           </div>
           
           <BMIResult 
