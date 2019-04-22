@@ -2,7 +2,6 @@
   "name": "bmi-calc-react-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/sanoofp/reactjs-bmi-calculator",
   "dependencies": {
     "gh-pages": "^2.0.1",
     "material-ui": "^0.19.4",
