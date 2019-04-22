@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import numeral from "numeral";
 import InputFields from './Components/InputFields';
 import BMIResult from './Components/BMIResult';
 import BmiWiki from './Components/BmiWiki';
@@ -20,8 +21,7 @@ const style={
     zIndex: '99'
 } 
 
-const numeral = require('numeral');
-
+const vibratePattern007 = [200,100,200];
 class App extends Component {
   constructor(){
     super();
@@ -99,10 +99,15 @@ class App extends Component {
 
 
   generateBMI(){
+    window.navigator.vibrate(vibratePattern007);
     const { weight, height } = this.state;
     let bmi = weight / (height * height) * 10000;
     bmi = numeral(bmi).format('(0.0)');
-    this.setState({bmi: bmi, bmiInfo: this.getCondition(bmi)});
+    this.setState({
+      bmi: bmi,
+      bmiInfo: this.getCondition(bmi)},
+      () => {(this.state.bmiInfo.vibration) ? window.navigator.vibrate(vibratePattern007) : window.navigator.vibrate(0);
+    });
     if(this.state.resultBoxShow === false){
       this.setState({resultBoxShow: true});
     }
@@ -110,21 +115,21 @@ class App extends Component {
 
   getCondition = (bmi) => {
     if(bmi < 15){
-      return {resultColor: "#FFEE58", condition: "Very severely underweight"}
+      return {resultColor: "#FFEE58", condition: "Very severely underweight", vibration: true}
     } else if (bmi >= 15 && bmi <= 15.9) {
-      return {resultColor: "#FFEE58", condition: "Severely underweight"};
+      return {resultColor: "#FFEE58", condition: "Severely underweight", vibration: true};
     } else if (bmi >= 16 && bmi < 18.5) {
-      return {resultColor: "#FFEB3B", condition: "Underweight"};
+      return {resultColor: "#FFEB3B", condition: "Underweight", vibration: true};
     } else if (bmi >= 18.5 && bmi < 25){
-      return {resultColor: "#66BB6A", condition: "Normal (Healthy weight)"};
+      return {resultColor: "#66BB6A", condition: "Normal (Healthy weight)", vibration: false};
     } else if (bmi >= 25 && bmi < 30) {
-      return {resultColor: "#EF5350", condition: "Overweight"};
+      return {resultColor: "#EF5350", condition: "Overweight", vibration: true};
     } else if (bmi >= 30 && bmi < 35){
-      return {resultColor: "#E53935", condition: "Moderately obese"};
+      return {resultColor: "#E53935", condition: "Moderately obese", vibration: true};
     } else if (bmi >= 35 && bmi < 40) {
-      return {resultColor: "#D84315", condition: "Severely obese"}
+      return {resultColor: "#D84315", condition: "Severely obese", vibration: true}
     } else {
-      return {resultColor: "#C62828", condition: "Very severely obese"}
+      return {resultColor: "#C62828", condition: "Very severely obese", vibration: true}
     }
   }
 }

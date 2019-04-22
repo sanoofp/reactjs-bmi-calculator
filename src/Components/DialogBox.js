@@ -5,7 +5,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 const styles = {
     borderTop: '8px solid #FF9800',
-    width: '98%',
+    width: '90%',   
     maxWidth: 'none',
     borderRadius: '3px 3px 0px 0px'
 } 
@@ -32,7 +32,7 @@ class DialogBox extends Component {
             <FlatButton 
                 label="More"
                 primary={true}
-                href="google.com"
+                href="https://www.medicalnewstoday.com/articles/323622.php"
             />
         ];       
         return(
@@ -52,16 +52,6 @@ class DialogBox extends Component {
                     autoScrollBodyContent={true}
                 >
                     <h1 className="dialog-h1">Body Mass Index (BMI) for Adults</h1>
-                    <p className="dialog-p">A BMI of 18.5 to 24.9 (green) is considered healthy. A BMI of 25 to 29.9 (yellow) is considered overweight. A BMI of 30 or higher (red) is considered obese. A person who has a large change in BMI, even if he or she is not overweight or underweight, should be evaluated to find the cause.A BMI of 18.5 to 24.9 (green) is considered healthy. A BMI of 25 to 29.9 (yellow) is considered overweight. A BMI of 30 or higher (red) is considered obese. A person who has a large change in BMI, even if he or she is not overweight or underweight, should be evaluated to find the cause.A BMI of 18.5 to 24.9 (green) is considered healthy. A BMI of 25 to 29.9 (yellow) is considered overweight. A BMI of 30 or higher (red) is considered obese. A person who has a large change in BMI, even if he or she is not overweight or underweight, should be evaluated to find the cause.</p>
-                    <h1 className="dialog-h1">BMI Calculations</h1>
-                    <p className="dialog-p">A BMI of 18.5 to 24.9 (green) is considered healthy. A BMI of 25 to 29.9 (yellow) is considered overweight. A BMI of 30 or higher (red) is considered obese. A person who has a large change in BMI, even if he or she is not overweight or underweight, should be evaluated to find the cause.A BMI of 18.5 to 24.9 (green) is considered healthy. A BMI of 25 to 29.9 (yellow) is considered overweight. A BMI of 30 or higher (red) is considered obese. A person who has a large change in BMI, even if he or she is not overweight or underweight, should be evaluated to find the cause.A BMI of 18.5 to 24.9 (green) is considered healthy. A BMI of 25 to 29.9 (yellow) is considered overweight. A BMI of 30 or higher (red) is considered obese. A person who has a large change in BMI, even if he or she is not overweight or underweight, should be evaluated to find the cause.</p>
-                    <h1 className="dialog-h1">BMI Calculations</h1>
-                    <p className="dialog-p">A BMI of 18.5 to 24.9 (green) is considered healthy. A BMI of 25 to 29.9 (yellow) is considered overweight. A BMI of 30 or higher (red) is considered obese. A person who has a large change in BMI, even if he or she is not overweight or underweight, should be evaluated to find the cause.A BMI of 18.5 to 24.9 (green) is considered healthy. A BMI of 25 to 29.9 (yellow) is considered overweight. A BMI of 30 or higher (red) is considered obese. A person who has a large change in BMI, even if he or she is not overweight or underweight, should be evaluated to find the cause.A BMI of 18.5 to 24.9 (green) is considered healthy. A BMI of 25 to 29.9 (yellow) is considered overweight. A BMI of 30 or higher (red) is considered obese. A person who has a large change in BMI, even if he or she is not overweight or underweight, should be evaluated to find the cause.</p>
-                    <h1 className="dialog-h1">BMI Calculations</h1>
-                    <p className="dialog-p">A BMI of 18.5 to 24.9 (green) is considered healthy. A BMI of 25 to 29.9 (yellow) is considered overweight. A BMI of 30 or higher (red) is considered obese. A person who has a large change in BMI, even if he or she is not overweight or underweight, should be evaluated to find the cause.A BMI of 18.5 to 24.9 (green) is considered healthy. A BMI of 25 to 29.9 (yellow) is considered overweight. A BMI of 30 or higher (red) is considered obese. A person who has a large change in BMI, even if he or she is not overweight or underweight, should be evaluated to find the cause.A BMI of 18.5 to 24.9 (green) is considered healthy. A BMI of 25 to 29.9 (yellow) is considered overweight. A BMI of 30 or higher (red) is considered obese. A person who has a large change in BMI, even if he or she is not overweight or underweight, should be evaluated to find the cause.</p>
-                    <h1 className="dialog-h1">BMI Calculations</h1>
-                    <p className="dialog-p">A BMI of 18.5 to 24.9 (green) is considered healthy. A BMI of 25 to 29.9 (yellow) is considered overweight. A BMI of 30 or higher (red) is considered obese. A person who has a large change in BMI, even if he or she is not overweight or underweight, should be evaluated to find the cause.A BMI of 18.5 to 24.9 (green) is considered healthy. A BMI of 25 to 29.9 (yellow) is considered overweight. A BMI of 30 or higher (red) is considered obese. A person who has a large change in BMI, even if he or she is not overweight or underweight, should be evaluated to find the cause.A BMI of 18.5 to 24.9 (green) is considered healthy. A BMI of 25 to 29.9 (yellow) is considered overweight. A BMI of 30 or higher (red) is considered obese. A person who has a large change in BMI, even if he or she is not overweight or underweight, should be evaluated to find the cause.</p>
-                    <h1 className="dialog-h1">BMI Calculations</h1>
                     <p className="dialog-p">A BMI of 18.5 to 24.9 (green) is considered healthy. A BMI of 25 to 29.9 (yellow) is considered overweight. A BMI of 30 or higher (red) is considered obese. A person who has a large change in BMI, even if he or she is not overweight or underweight, should be evaluated to find the cause.A BMI of 18.5 to 24.9 (green) is considered healthy. A BMI of 25 to 29.9 (yellow) is considered overweight. A BMI of 30 or higher (red) is considered obese. A person who has a large change in BMI, even if he or she is not overweight or underweight, should be evaluated to find the cause.A BMI of 18.5 to 24.9 (green) is considered healthy. A BMI of 25 to 29.9 (yellow) is considered overweight. A BMI of 30 or higher (red) is considered obese. A person who has a large change in BMI, even if he or she is not overweight or underweight, should be evaluated to find the cause.</p>
                 </Dialog>
             </div>
